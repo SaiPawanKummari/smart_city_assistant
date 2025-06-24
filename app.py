@@ -1,6 +1,10 @@
 import streamlit as st
+import streamlit as st
 import os
 from dotenv import load_dotenv
+
+# ✅ MUST BE THE FIRST Streamlit COMMAND
+st.set_page_config(page_title="Smart City Assistant", layout="wide")
 
 # Load environment variables
 load_dotenv()
@@ -22,8 +26,7 @@ from customer_feedback import feedback_form
 from Anomoly_detection import anomaly_detection
 from Eco_tips import eco_tips_module
 
-
-# -------------------- Custom Background & Styling --------------------
+# ✅ Only after set_page_config
 st.markdown(
     """
     <style>
@@ -50,10 +53,8 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-
-# -------------------- Main Dashboard --------------------
+# Continue with your `main()` function
 def main():
-    st.set_page_config(page_title="Smart City Assistant", layout="wide")
     st.sidebar.title("🧭 Smart City Assistant")
 
     selected_module = st.sidebar.radio(
